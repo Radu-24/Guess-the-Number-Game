@@ -6,12 +6,14 @@ from PyQt6.QtWidgets import (
     QVBoxLayout, QHBoxLayout, QWidget, QDialog,
     QMenuBar, QPlainTextEdit, QTreeWidget, QTreeWidgetItem
 )
-from PyQt6.QtGui import QFont, QAction
+from PyQt6.QtGui import QFont, QIcon, QAction
 from PyQt6.QtCore import Qt, QTimer
+import os
 
 class GuessTheNumberGame(QWidget):
     def __init__(self):
         super().__init__()
+        self.setWindowIcon(QIcon(os.path.join(os.path.dirname(__file__), "icon.png")))
         self.history = []  # list of dicts: {'guess', 'result', 'time'}
         self.guesses = 0
         self.min_value = 1
@@ -217,11 +219,9 @@ class GuessTheNumberGame(QWidget):
         dlg = QDialog(self)
         dlg.setWindowTitle("Guess History")
         layout = QVBoxLayout(dlg)
-        # Summary
         summary = QLabel(f"Total guesses: {self.guesses} | Duration: {self.history[-1]['time'] if self.history else '00:00'}")
         summary.setFont(QFont('Arial', 12, QFont.Weight.Bold))
         layout.addWidget(summary)
-        # Tree view grouped by result
         tree = QTreeWidget()
         tree.setColumnCount(3)
         tree.setHeaderLabels(["Guess", "Result", "Time"])

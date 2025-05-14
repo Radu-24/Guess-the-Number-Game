@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Guess The Number
+Comment=Number guessing game made with PyQt6
+Exec=GuessTheNumber
+Icon=guessthenumber
+Terminal=false
+Type=Application
+Categories=Game;
+
