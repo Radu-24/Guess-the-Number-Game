@@ -1,71 +1,102 @@
 # Guess the Number Game
 
-A modern number-guessing game built with Python and PyQt6.
+A cross-platform number guessing game built with Python and PyQt6.  
+Choose your difficulty, get real-time feedback, and track your performance with built-in history and timing features.
 
 ---
 
 ## Features
 
 - Difficulty selection: Easy (1–50), Medium (1–100), Hard (1–200)
-- Stopwatch and real-time clock display
-- Submit guesses using Enter key or button
-- Feedback system: Too low / Too high / Correct
-- Guess history grouped by result with timestamps and summary
-- Clean dark-themed UI with color-coded feedback
-- Options to restart the game or change difficulty at any time
+- Stopwatch and real-time clock
+- Submit guesses using Enter key or GUI button
+- Color-coded feedback (Too low / Too high / Correct)
+- Guess history tracking with timestamps and grouping
+- Clean dark-themed GUI with responsive layout
+- Native Windows `.exe` build with custom icon
+- Ubuntu `.deb` package with desktop entry and icon
 
 ---
 
-## Requirements
+## Installation
 
-- Python 3.9 or higher
+### Windows
+
+Download the latest `.exe` from the [Releases page](https://github.com/Radu-24/Guess-the-Number-Game/releases).
+
+No installation required. Just double-click to play.
+
+---
+
+### Linux (.deb)
+
+Download the `.deb` package from the [Releases page](https://github.com/Radu-24/Guess-the-Number-Game/releases), then install:
+
+```bash
+sudo dpkg -i guess-the-number-app.deb
+```
+
+Launch it from your app menu.
+
+---
+
+## Run from Source
+
+### Requirements
+
+- Python 3.9+
 - PyQt6
 
-Install dependencies with:
+### Install dependencies
 
 ```bash
-pip install PyQt6
+pip install -r requirements.txt
+```
+
+### Run the game
+
+```bash
+python src/guess.py
 ```
 
 ---
 
-## How to Run
+## Build Instructions
+
+### Windows `.exe` using PyInstaller
 
 ```bash
-python guess.py
+pyinstaller --onefile --windowed ^
+  --icon=assets\guessthenumber.ico ^
+  --name=GuessTheNumber ^
+  src\guess.py
 ```
 
-1. Select the difficulty level.
-2. Enter a number and check if it's correct.
-3. View game statistics and history.
-4. Change difficulty or start a new game anytime.
+Output will be in the `dist/` folder.
 
 ---
 
-## Future Improvements
+## Project Structure
 
-The following may be added in future updates:
-
-- Save game history across sessions
-- Add sound effects and animations
-- Track high scores
+```
+Guess-the-Number-Game/
+├── assets/           # Icons (.ico for Windows, .png for Linux)
+├── src/              # Source code
+├── dist/             # PyInstaller output (.exe)
+├── README.md
+├── LICENSE
+├── requirements.txt
+└── .gitignore
+```
 
 ---
 
 ## License
 
-Licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## Contributing
+## Credits
 
-Feel free to fork the repository and submit pull requests for:
-
-- New features
-- Bug fixes
-- UI enhancements
-
----
-
-Developed with Python and Qt
+Developed by Radu using Python and Qt 6.
